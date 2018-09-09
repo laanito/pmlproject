@@ -4,17 +4,22 @@ author: "Luis Amigo"
 date: "9 de septiembre de 2018"
 output: html_document
 ---
+# Objective
+
+Main target of this work is predicting how accurate an exercise was with the data given by personal devices.
+
 
 # Preliminary Work
 
+We first need to load data and operate over it to make it available to our model
+
 ## Reproduceability
 
-An overall pseudo-random number generator seed was set at 6969 for all code. In order to reproduce the results below, the same seed should be used.
-Different packages were downloaded and installed, such as caret and randomForest. These should also be installed in order to reproduce the results below (please see code below for ways and syntax to do so).
+Results are provided on HTML format, all steps are reproducible, seed was set at 6969 for all code. In order to reproduce the results below, the same seed should be used.
 
 ## How the model was built
 
-Our outcome variable is classe, a factor variable with 5 levels. For this data set, "participants were asked to perform one set of 10 repetitions of the Unilateral Dumbbell Biceps Curl in 5 different fashions:
+The outcome variable is classe, a factor variable with 5 levels. For this data set, "participants were asked to perform one set of 10 repetitions of the Unilateral Dumbbell Biceps Curl in 5 different fashions:
 
 - exactly according to the specification (Class A)
 - throwing the elbows to the front (Class B)
@@ -74,6 +79,9 @@ testingset <- read.csv('https://d396qusza40orc.cloudfront.net/predmachlearn/pml-
 
 ## Check dimensions for number of variables and number of observations
 
+We check dimensions and remove irrelevant columns, dimension are check after removing columns again
+
+
 ```{r precheck, cache=TRUE}
 dim(trainingset)
 dim(testingset)
@@ -127,7 +135,7 @@ confusionMatrix(prediction1, subTesting$classe)
 
 # Second prediction model: Using Random Forest
 
-```{r rfmodel}
+```{r rfmodel, cache=TRUE}
 model2 <- randomForest(classe ~. , data=subTraining, method="class")
 
 # Predicting:

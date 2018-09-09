@@ -128,15 +128,20 @@ $(document).ready(function () {
 </div>
 
 
+<div id="objective" class="section level1">
+<h1>Objective</h1>
+<p>Main target of this work is predicting how accurate an exercise was with the data given by personal devices.</p>
+</div>
 <div id="preliminary-work" class="section level1">
 <h1>Preliminary Work</h1>
+<p>We first need to load data and operate over it to make it available to our model</p>
 <div id="reproduceability" class="section level2">
 <h2>Reproduceability</h2>
-<p>An overall pseudo-random number generator seed was set at 6969 for all code. In order to reproduce the results below, the same seed should be used. Different packages were downloaded and installed, such as caret and randomForest. These should also be installed in order to reproduce the results below (please see code below for ways and syntax to do so).</p>
+<p>Results are provided on HTML format, all steps are reproducible, seed was set at 6969 for all code. In order to reproduce the results below, the same seed should be used.</p>
 </div>
 <div id="how-the-model-was-built" class="section level2">
 <h2>How the model was built</h2>
-<p>Our outcome variable is classe, a factor variable with 5 levels. For this data set, “participants were asked to perform one set of 10 repetitions of the Unilateral Dumbbell Biceps Curl in 5 different fashions:</p>
+<p>The outcome variable is classe, a factor variable with 5 levels. For this data set, “participants were asked to perform one set of 10 repetitions of the Unilateral Dumbbell Biceps Curl in 5 different fashions:</p>
 <ul>
 <li>exactly according to the specification (Class A)</li>
 <li>throwing the elbows to the front (Class B)</li>
@@ -186,6 +191,7 @@ set.seed(6969)</code></pre>
 </div>
 <div id="check-dimensions-for-number-of-variables-and-number-of-observations" class="section level2">
 <h2>Check dimensions for number of variables and number of observations</h2>
+<p>We check dimensions and remove irrelevant columns, dimension are check after removing columns again</p>
 <pre class="r"><code>dim(trainingset)</code></pre>
 <pre><code>## [1] 19622   160</code></pre>
 <pre class="r"><code>dim(testingset)</code></pre>
